@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  
+    <meta charset="UTF-8">
+    <title>فروشگاه دکتر لپ تاپ</title>
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="./../js/render.js"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+    <style>
+    
+    #paymentAndReceiveModal,#mainform{
+      direction: rtl
+    }
+    #searchbox{
+      direction: ltr !important;
+      
+      
+      
+    }
+ #back
+{
+  width: 20px;
+  height: 30px;
+  text-align: center;
+  padding: 6px 0;
+  font-size: 12px;
+  line-height: 1.42;
+  border-radius: 15px;
+}
+body{
+  direction: rtl;
+}
+    
+    </style>
+    <script>
+          $(document).ready(function(){
+
+          $('#back').on('click',function(){
+          window.location.href='first.html'
+          })
+
+          $('#moaref').on('change', function() {
+            console.log($("#moaref").val())
+            
+            if($("#moaref").val()==1){
+              $('#myModal').modal('show');
+            }
+          })
+          $('#close_moaref').click(function(){
+            $('#myModal').modal('toggle');
+          })
+          })
+    
+    </script>
+
+</head>
+  <body>
+
+
+    
+<div class="modal fade  " id="paymentAndReceiveModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog " role="document">
+      <div class="modal-content bg-info">
+        <div class="modal-header">
+          <h5 class="modal-title badge badge-warning font-weght-bold" id="exampleModalLabel ">فرم مشخصات مشتری</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="form-group">
+              <label for="recipient-name" class="col-form-label" >نام مشتری</label>
+              <input type="text" class="form-control" name="Fname">
+            </div>
+            <div class="form-group">
+              <label for="message-text" class="col-form-label" >علت مراجعه</label>
+              <br>
+                <input type="text" class="form-control" name="title">
+            </div>
+            <div class="form-group form-inline">
+              <label for="message-text" class="col-form-label ml-1"  >هزینه:</label>
+              <input type="number" class="form-control" name="title" name="price" style="width: 130px" >
+              <label for="message-text" class="col-form-label ml-1"  >تومان</label>
+
+              <label for="message-text" class="col-form-label mr-2" > پرداختی:</label>
+              <input type="number" class="form-control mr-1" name="givenprice" style="width: 130px">
+              <label for="message-text" class="col-form-label"  >تومان</label>
+            </div>
+
+            <div class="form-group">
+                <label for="message-text" class="col-form-label">آیا معرف دارید ؟؟</label>
+
+                <select class="browser-default custom-select custom-select-lg mb-3" id="moaref">
+                  <option selected value="0">خیر</option>
+                  <option  data-toggle="modal" data-target="#myModal" value="1" >بله</option>
+                </select>
+              </div>
+
+                  <div id="myModal" class="modal fade" role="dialog" >
+                      <div class="modal-dialog modal-sm">
+
+                          <!-- Modal content-->
+                          <div class="modal-content" style="background:lightgray" >
+                            <div class="modal-header">
+                              
+                              <h4 class="modal-title ml-5 badge badge-danger">اطلاعات معرف</h4>
+                            </div>
+                            <div class="modal-body">
+                                <div class="form-group">
+                                    <label for="usr">نام و نام خانوادگی معرف</label>
+                                    <input type="text" class="form-control" id="usr" placeholder="Fname" >
+                                  </div>
+                            </div>
+                            <div class="modal-footer">
+                              <div class="form-group" >
+                              <button type="button" class="btn btn-warning" id="close_moaref">بستن</button>
+                              <button type="button" class="btn btn-success" id="save_moaref">ثبت اطلاعات</button>
+                              </div>
+                            </div>
+                          </div>
+                      
+                        </div>
+                      </div>
+                  
+                
+              
+
+
+            <div class="form-group">
+                <label for="message-text" class="col-form-label">وضیعت</label>
+                <select name="type" class="form-control">
+                  <option value="payment" selected value="0">در حال انجام </option>
+                  <option value="receive" value="1">تکمیل شده</option>
+                </select>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" id="add-row">Add Row</button>
+        </div>
+      </div>
+    </div>
+  </div>
+    
+    <nav class="navbar navbar-light bg-light justify-content-between" id="mainform">
+      <div class="btn-group">
+        <button type="button" class="btn btn-success mt-2" data-toggle="modal" data-target="#paymentAndReceiveModal">ثبت اطلاعات</button>
+        <button class="mr-auto btn-primary" id="back"><i class="fa fa-backward mr-2 " aria-hidden="true" style="float: left"></i></button>
+      </div>
+      <hr>
+      <div style="float: right">
+      <form class="form-inline d-flex justify-content-center" id="searchbox ">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="جست و جو" >
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">جست وجو</button>
+        
+    
+      </form>
+      </div>
+      <br>
+    </nav>
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th scope="col" class="text-right">ردیف</th>
+          <th scope="col " class="text-center">نام و نام خانوادگی </th>
+          <th scope="col" class="text-center">علت مراجعه</th>
+          <th scope="col " class="text-center">هزینه </th>
+          <th scope="col" class="d-flex justify-content-center">مبلع پرداخت شده</th>
+         
+          <th scope="col " class="text-center">وضعیت </th>
+          <th scope="col " class="text-center">معرف </th>
+          <th scope="col " class="text-center">ویرایش </th>
+        </tr>
+      </thead>
+      <tbody id="show-data">
+        <tr>
+          <th scope="row"class="text-right" >-</th>
+          <td class="text-center"> -</td>
+          <td class="text-center">-</td>
+          <td class="text-center">-</td>
+          <td class="text-center">-</td>
+          <td class="text-center">-</td>
+          <td class="text-center">-</td>
+          <td class="text-center">-</td>
+        </tr>
+      </tbody>
+    </table>
+    
+  </body>
+</html>
