@@ -23,7 +23,7 @@
     "babel-loader": "^8.0.6",
     "babel-preset-env": "^1.7.0",
     "babel-register": "^6.26.0",
-    "electron": "^6.0.1",
+    "electron": "^11.5.0",
     "electron-json-storage": "^4.1.7",
     "extract-text-webpack-plugin": "^3.0.2",
     "webpack": "^4.39.2",
